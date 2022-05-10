@@ -33,9 +33,4 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "Contact | Ruby on Rails Tutorial Sample App"
   end
-
-  # test "full title helper" do
-  #   assert_equal full_title,         FILL_IN
-  #   assert_equal full_title("Help"), FILL_IN
-  # end
 end
