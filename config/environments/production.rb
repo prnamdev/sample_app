@@ -60,28 +60,47 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "sample_app_production"
 
+  # config.action_mailer.perform_caching = false
+
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :smtp
+  # host = 'calm-earth-30134.herokuapp.com'
+  # config.action_mailer.default_url_options = { host: host }
+  # ActionMailer::Base.smtp_settings = {
+  #   address:              'smtp.gmail.com',
+  #   port:                  587,
+  #   domain:               'heroku.com',
+  #   user_name:             ENV['GMAIL_USERNAME'],
+  #   password:              ENV['GMAIL_PASSWORD'],
+  #   authentication:       'plain',
+  #   enable_starttls_auto:  true,
+  #   open_timeout:          5,
+  #   read_timeout:          5
+  # }
+
+
   config.action_mailer.perform_caching = false
-
-
-  host = 'calm-earth-30134.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                  587,
-    domain:               'mail.google.com',
-    user_name:             ENV['GMAIL_USERNAME'],
-    password:              ENV['GMAIL_PASSWORD'],
-    authentication:       'plain',
-    enable_starttls_auto:  true,
-    open_timeout:          5,
-    read_timeout:          5
-  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+  host = 'calm-earth-30134.herokuapp.com'                             #replace with your own url
+  config.action_mailer.default_url_options = { host: host }
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => ENV['GMAIL_USERNAME'],
+    :password             => ENV['GMAIL_PASSWORD'],
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+  # Ignore bad email addresses and do not raise email delivery errors.
+  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
